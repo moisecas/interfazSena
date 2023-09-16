@@ -1,11 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registro de Empresa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Registro de Empresa
+                    </div>
+                    <div class="card-body">
+                        <form id="company-registration-form">
+                            <div class="mb-3">
+                                <label for="company-name" class="form-label">Nombre de la Empresa</label>
+                                <input type="text" class="form-control" id="company-name" name="company-name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="company-address" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="company-address" name="company-address" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="company-neighborhood" class="form-label">Barrio</label>
+                                <input type="text" class="form-control" id="company-neighborhood" name="company-neighborhood" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="company-city" class="form-label">Ciudad</label>
+                                <input type="text" class="form-control" id="company-city" name="company-city" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="company-nit-cc" class="form-label">NIT o CC</label>
+                                <input type="text" class="form-control" id="company-nit-cc" name="company-nit-cc" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="company-pdf" class="form-label">Archivo PDF para la Cámara de Comercio</label>
+                                <input type="file" class="form-control" id="company-pdf" name="company-pdf" accept=".pdf" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Registrar Empresa</button>
+                        </form>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Siguiente interfaz</button> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const companyRegistrationForm = document.getElementById("company-registration-form");
+        
+            companyRegistrationForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+        
+                const companyName = document.getElementById("company-name").value;
+                const companyAddress = document.getElementById("company-address").value;
+                const companyNeighborhood = document.getElementById("company-neighborhood").value;
+                const companyCity = document.getElementById("company-city").value;
+                const companyNitCc = document.getElementById("company-nit-cc").value;
+                const companyPdf = document.getElementById("company-pdf").files[0];
+        
+                // Realiza la validación de datos aquí
+                if (companyName === "" || companyAddress === "" || companyNeighborhood === "" || companyCity === "" || companyNitCc === "" || !companyPdf) {
+                    alert("Por favor, completa todos los campos y carga un archivo PDF válido.");
+                } else {
+                    // Los datos son válidos; aquí puedes enviarlos al servidor o realizar otras acciones necesarias
+                    alert("Registro de empresa exitoso");
+                }
+            });
+        });
+        </script>
+        
 </body>
 </html>
+
